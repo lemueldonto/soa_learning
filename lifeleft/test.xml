@@ -1,0 +1,7 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <ns2:creerClientResponse xmlns:ns2="http://lifeleft.com/">
+            <return>672</return>
+        </ns2:creerClientResponse>
+    </S:Body>
+</S:Envelope>

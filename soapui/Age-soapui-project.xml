@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b79748e7-3908-482f-9361-a38553c5d6b9" activeEnvironment="Default" name="Age" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="089d7b44-06c7-44bf-aa6b-7db66c393f77" wsaVersion="NONE" name="AgeServicePortBinding" type="wsdl" bindingName="{http://ageservice/}AgeServicePortBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/SI5/SOA/age/src/main/resources/age.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\SI5\SOA\age\src\main\resources\age.wsdl"><con:part><con:url>file:\C:\SI5\SOA\age\src\main\resources\age.wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="http://ageservice/" name="AgeService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ageservice/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema targetNamespace="http://ageservice/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getAge" type="tns:getAge"/>
+      <xs:element name="getAgeResponse" type="tns:getAgeResponse"/>
+      <xs:complexType name="getAge">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAgeResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="getAge">
+    <part name="parameters" element="tns:getAge"/>
+  </message>
+  <message name="getAgeResponse">
+    <part name="parameters" element="tns:getAgeResponse"/>
+  </message>
+  <portType name="AgeService">
+    <operation name="getAge">
+      <input message="tns:getAge"/>
+      <output message="tns:getAgeResponse"/>
+    </operation>
+  </portType>
+  <binding name="AgeServicePortBinding" type="tns:AgeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="getAge">
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="getAge">
+    <port name="AgeServicePort" binding="tns:AgeServicePortBinding">
+      <soap:address location="http://localhost:8080/Age/getAge"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/Age/getAge</con:endpoint></con:endpoints><con:operation id="70321e10-dd0e-41f0-88da-6a2b3934c4c1" isOneWay="false" action="" name="getAge" bindingOperationName="getAge" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a9c28492-2c55-4176-a768-60775beeede4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/Age/getAge</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ages="http://ageservice/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ages:getAge>\r
+         <!--Optional:-->\r
+         <arg0>2000</arg0>\r
+      </ages:getAge>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ageservice/AgeService/getAgeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
